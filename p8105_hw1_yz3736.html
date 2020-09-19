@@ -400,9 +400,9 @@ summary {
 <div id="part-2-take-the-mean-of-each-variable-in-data-frame" class="section level3">
 <h3>Part 2: Take the mean of each variable in data frame</h3>
 <pre class="r"><code>mean(pull(prob1_df, samp))</code></pre>
-<pre><code>## [1] 0.170883</code></pre>
+<pre><code>## [1] -0.1563647</code></pre>
 <pre class="r"><code>mean(pull(prob1_df, samp_gt_0))</code></pre>
-<pre><code>## [1] 0.7</code></pre>
+<pre><code>## [1] 0.4</code></pre>
 <pre class="r"><code>mean(pull(prob1_df, char_vec))</code></pre>
 <pre><code>## Warning in mean.default(pull(prob1_df, char_vec)): argument is not numeric or
 ## logical: returning NA</code></pre>
@@ -428,19 +428,21 @@ as.numeric(pull(prob1_df, factor_vec))</code></pre>
 <li>convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result</li>
 </ol>
 <pre class="r"><code>as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)</code></pre>
-<pre><code>##  [1] 0.00000000 0.91284839 0.00000000 0.00000000 0.01879161 1.03644797
-##  [7] 0.30082513 0.36903840 0.09235351 2.15861897</code></pre>
+<pre><code>##  [1] 0.00000000 0.00000000 0.00000000 0.13142744 0.00000000 0.00000000
+##  [7] 0.00000000 1.30678085 0.05695543 1.59717656</code></pre>
 <pre class="r"><code>as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)</code></pre>
 <pre><code>## Warning in Ops.factor(as.factor(pull(prob1_df, samp_gt_0)), pull(prob1_df, : &#39;*&#39;
 ## not meaningful for factors</code></pre>
 <pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA</code></pre>
 <pre class="r"><code>as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)</code></pre>
-<pre><code>##  [1] -1.33515655  1.82569678 -0.98492566 -0.86001167  0.03758323  2.07289594
-##  [7]  0.60165025  0.73807679  0.18470703  4.31723793</code></pre>
+<pre><code>##  [1] -0.2543361 -1.2256794 -0.4805734  0.2628549 -2.0968758 -0.4591055
+##  [7] -0.1394168  2.6135617  0.1139109  3.1943531</code></pre>
 </div>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2</h1>
+<p>Load the penguins data set.</p>
+<pre class="r"><code>data(&quot;penguins&quot;, package = &quot;palmerpenguins&quot;)</code></pre>
 </div>
 
 
