@@ -1,7 +1,7 @@
 # p8105_hw1_yz3736
 This is my solution to Homework 1.
 
-I create a r markdown file.
+I create a r markdown file that renders to github_document.
 
 Note:
 Problem 1 is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice.

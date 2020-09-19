@@ -1,7 +1,7 @@
 ---
 title: "Homework 1"
 author: Yuanxin Zhang
-output: html_document
+output: github_document
 ---
 
 This is my solution to Homework 1. 
@@ -13,10 +13,10 @@ library(tidyverse)
 
 # Question 1
 ### Part 1: Create a data frame with the specified elements
-1) a random sample of size 10 from a standard Normal distribution
-2) a logical vector indicating whether elements of the sample are greater than 0
-3) a character vector of length 10
-4) a factor vector of length 10, with 3 different factor “levels”
+1. a random sample of size 10 from a standard Normal distribution
+2. a logical vector indicating whether elements of the sample are greater than 0
+3. a character vector of length 10
+4. a factor vector of length 10, with 3 different factor “levels”
 ```{r create_df}
 prob1_df = 
   tibble(
@@ -56,7 +56,17 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 ```
 
 # Question 2
-Load the penguins data set.
+Load the penguins dataset:
 ```{r load_data}
 data("penguins", package = "palmerpenguins")
+```
+### Part 1: Write a short description of the penguins dataset
+There are `r nlevels(pull(penguins, species))` different species of penguins in the dataset: `r levels(pull(penguins, species))`. Data were collected from `r nlevels(pull(penguins, island))` islands: `r levels(pull(penguins, island))`.
+The penguins dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm.
+
+### Part 2: Make and export a scatterplot of flipper_length_mm (y) vs bill_length_mm (x)
+```{r scatterplot}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("p8105_hw1_yz3736_scatterplot.png")
 ```
